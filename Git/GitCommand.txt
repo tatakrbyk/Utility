@@ -1,0 +1,134 @@
+# Git Komutları ve Açıklamaları
+
+# 1. git init
+git init  /* Yeni bir git deposu başlatır. */
+# Opsiyonlar:
+# --bare       /* Yalnızca bare repository oluşturur (çalışma dizini olmadan). */
+# --template=<path>  /* Template dizinini kullanarak depoyu başlatır. */
+
+# 2. git clone
+git clone <repository_url>  /* Mevcut bir depoyu kopyalar. */
+# Opsiyonlar:
+# --depth <depth>      /* Derinlik sınırlaması ile clone yapar. (sadece son commitleri alır) */
+# --branch <branch_name>   /* Belirtilen branch’i clone eder. */
+# --single-branch   /* Sadece tek bir branch'i kopyalar. */
+# --recurse-submodules    /* Submodule'ları da clone eder. */
+
+# 3. git status
+git status  /* Çalışma dizinindeki dosya durumlarını gösterir. */
+# Opsiyonlar:
+# --short      /* Daha kısa ve anlaşılır formatta durum gösterir. */
+# --porcelain   /* Daha makine dostu bir format gösterir. */
+# --ignored   /* Ignored dosyaları da gösterir. */
+
+# 4. git add
+git add <dosya_adı>  /* Değişiklikleri staging alanına ekler. */
+# Opsiyonlar:
+# --all      /* Tüm değişiklikleri (yeniden adlandırma, silme vb.) ekler. */
+# --patch   /* Hangi değişikliklerin eklenmesi gerektiğini seçmenizi sağlar. */
+# --update   /* Sadece daha önce izlenen dosyaları ekler. */
+
+# 5. git commit
+git commit -m "Mesaj"  /* Staging alanındaki dosyaları commit eder. */
+# Opsiyonlar:
+# --amend    /* Son commit'i değiştirir (commit mesajı dahil). */
+# --no-edit   /* Commit mesajını değiştirmeden son commit’i günceller. */
+# --verbose  /* Commit işlemi sırasında dosya değişikliklerini gösterir. */
+# --all     /* Staging alanındaki tüm değişiklikleri commit eder. */
+# --date=<date>   /* Commit tarihi belirtir. */
+
+# 6. git push
+git push <remote> <branch>  /* Yerel değişiklikleri uzak depoya gönderir. */
+# Opsiyonlar:
+# --force   /* Değişiklikleri zorla (override) push eder. */
+# --set-upstream   /* Belirli bir branch'i izlemeye alır. */
+# --dry-run    /* Gerçek push yapmadan önce ne olacağını simüle eder. */
+# --tags    /* Etiketleri de push eder. */
+
+# 7. git pull
+git pull   /* Uzak depodan değişiklikleri alır ve merge eder. */
+# Opsiyonlar:
+# --rebase    /* Pull yaparken rebase işlemi yapar, merge yerine. */
+# --no-commit   /* Değişiklikleri localde alır, ancak commit etmez. */
+# --quiet    /* Daha az çıktı verir. */
+
+# 8. git fetch
+git fetch <remote>  /* Uzak depodaki değişiklikleri indirir, ancak merge etmez. */
+# Opsiyonlar:
+# --all     /* Tüm uzak depoları fetch eder. */
+# --tags    /* Etiketleri de fetch eder. */
+# --prune    /* Uzak depo ile senkronize etmek için silinen branch'leri temizler. */
+
+# 9. git merge
+git merge <branch>   /* Belirtilen branch'i geçerli branch'e merge eder. */
+# Opsiyonlar:
+# --no-ff   /* Fast-forward merge yapmaz. */
+# --squash   /* Merge edilen branch’i tek bir commit olarak birleştirir. */
+# --commit   /* Merge işlemi sonrası otomatik commit yapar. */
+# --no-commit   /* Merge sonrası commit yapmaz. */
+
+# 10. git rebase
+git rebase <branch>   /* Geçerli branch'i belirtilen branch’e göre yeniden oluşturur. */
+# Opsiyonlar:
+# --interactive   /* Rebase işlemini interaktif modda yapar. */
+# --onto <branch>   /* Belirtilen branch’e rebase eder. */
+# --abort    /* Rebase işlemini iptal eder. */
+# --skip   /* Mevcut commit'i atlar. */
+
+# 11. git branch
+git branch  /* Branch’leri listeler. */
+# Opsiyonlar:
+# -a   /* Tüm branch’leri (local ve remote) listeler. */
+# -r   /* Yalnızca remote branch’leri listeler. */
+# -d <branch>    /* Belirtilen branch’i siler. */
+# -D <branch>    /* Zorla belirtilen branch’i siler. */
+# -m <old_branch> <new_branch>   /* Branch ismini değiştirir. */
+
+# 12. git checkout
+git checkout <branch>   /* Başka bir branch’e geçiş yapar. */
+# Opsiyonlar:
+# -b <branch>   /* Yeni bir branch oluşturur ve o branch’e geçer. */
+# -- <file>   /* Belirtilen dosyayı çalışma alanında geri alır. */
+# --track    /* Yeni branch oluşturur ve remote branch ile izlemeye alır. */
+# --orphan <branch>   /* Yeni bir branch oluşturur ve geçmiş commitleri olmayan bir branch başlatır. */
+
+# 13. git log
+git log   /* Commit geçmişini gösterir. */
+# Opsiyonlar:
+# --oneline   /* Commit geçmişini tek satırda gösterir. */
+# --graph    /* Commit geçmişini görsel olarak ağ yapısında gösterir. */
+# --author=<name>    /* Belirtilen yazarın commitlerini gösterir. */
+# --since=<date>    /* Belirtilen tarihten itibaren yapılan commitleri gösterir. */
+# --until=<date>    /* Belirtilen tarihe kadar yapılan commitleri gösterir. */
+
+# 14. git reset
+git reset <commit>   /* Git başına ya da belirli bir commit’e reset yapar. */
+# Opsiyonlar:
+# --hard    /* Hem çalışma dizinini hem de staging alanını resetler. */
+# --soft    /* Sadece HEAD’i resetler, çalışma dizini ve staging alanı etkilenmez. */
+# --mixed   /* Staging alanını resetler, ancak çalışma dizini etkilenmez. */
+# --keep    /* Çalışma dizini değişiklikleri ile resetler. */
+
+# 15. git diff
+git diff   /* Çalışma dizini ile staging alanı arasındaki farkları gösterir. */
+# Opsiyonlar:
+# --staged    /* Staging alanı ile son commit arasındaki farkları gösterir. */
+# --name-only   /* Yalnızca değişen dosyaların adlarını gösterir. */
+# --color    /* Farkları renkli olarak gösterir. */
+
+# 16. git tag
+git tag <tag_name>   /* Yeni bir tag oluşturur. */
+# Opsiyonlar:
+# -a   /* Tag oluştururken açıklama ekler. */
+# -m <message>   /* Tag’a açıklama mesajı ekler. */
+# -d <tag_name>   /* Tag’ı siler. */
+# -l   /* Tag’leri listeler. */
+
+# 17. git stash
+git stash   /* Değişiklikleri geçici olarak saklar. */
+# Opsiyonlar:
+# save   /* Değişiklikleri saklar. */
+# pop   /* Son stash'i geri alır ve siler. */
+# apply   /* Stash'i geri alır ancak silmez. */
+# list   /* Saklanmış tüm stash’leri listeler. */
+# drop   /* Bir stash'i siler. */
